@@ -1,0 +1,56 @@
+
+
+.app-window {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+
+  .header {
+    display: flex;
+    padding: 16px;
+    overflow: hidden;
+    align-items: center;
+
+    .title {
+      font-size: x-large;
+      font-weight: bold;
+    }
+
+    .first-page{
+      margin: 0 16px;
+    }
+
+    .last-page{
+      margin: 0 16px;
+    }
+  }
+
+  .body {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: column;
+
+    .content-container {
+      display: flex;
+      flex: 1;
+      overflow: auto;
+      flex-direction: column;
+
+      .user-list {
+        margin: 4px 0px;
+        padding: 8px;
+        background-color: lightblue;
+      }
+    }
+
+    .table-footer {
+      display: flex;
+      flex-direction: row;
+      background: lightyellow;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

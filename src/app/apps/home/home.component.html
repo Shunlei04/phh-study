@@ -1,0 +1,26 @@
+<div class="app-window">
+  <div class="header">
+    <div class="title">Users List (Page No: {{ activePage }})</div>
+    <div class="first-page">First Page : {{ isFirstPage ? 'Yes' : 'No' }}</div>
+    <div class="last-page">Last Page : {{ isLastPage ? 'Yes' : 'No' }}</div>
+  </div>
+
+  <div class="body">
+    <div class="content-container">
+      @for (users of userList; track $index) {
+        <div class="user-list">{{ $index + 1 }} . {{ users.name }}</div>
+      }
+    </div>
+    <div class="table-footer">
+      <app-table-pages
+        [activePage]="activePage"
+        [pageList]="parentPageList"
+        (onPageChanges)="pageChanged($event)"
+      ></app-table-pages>
+      <app-table-first-last
+        (onFirstPage)="firstPageChanged($event)"
+        (onLastPage)="lastPageChanged($event)"
+      ></app-table-first-last>
+    </div>
+  </div>
+</div>
