@@ -1,6 +1,7 @@
 import { Component, EventEmitter, output, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DialogService } from '../components/dialog/dialog.service';
 
 @Component({
   selector: 'app-table-first-last',
@@ -14,10 +15,11 @@ export class TableFirstLastComponent {
   @Output() onFirstPage = new EventEmitter();
   @Output() onLastPage = new EventEmitter();
 
-  constructor() {}
+  constructor(private dialogService: DialogService) {}
 
   changeFirstPage() {
     this.onFirstPage.emit(true);
+    this.dialogService.openDialog();
   }
 
   changeLastPage() {
