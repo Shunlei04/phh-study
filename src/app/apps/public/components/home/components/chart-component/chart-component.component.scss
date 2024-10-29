@@ -1,0 +1,42 @@
+:host(.app-host) {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+
+  .app-window {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .header {
+      font-size: x-large;
+      font-weight: bold;
+      padding: 16px;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      padding: 16px;
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+      }
+
+      .drag-box {
+        flex-grow: 1;
+        display: flex;
+        border: 1px solid black;
+
+        width: 300px;
+        height: 300px;
+        margin: 16px;
+        padding: 16px;
+      }
+    }
+  }
+}

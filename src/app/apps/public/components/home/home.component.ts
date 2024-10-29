@@ -12,17 +12,24 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { debounceTime } from 'rxjs';
-import { TableFirstLastComponent } from '../table-first-last/table-first-last.component';
-import { TablePagesComponent } from '../table-pages/table-pages.component';
 import { HomeService } from './home.service';
 import { UserType } from './home.type';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { UserListFilterComponent } from '../user-list-filter/user-list-filter.component';
+import { TablePagesComponent } from '../../../table-pages/table-pages.component';
+import { AppDrawerService } from '../../../components/app-drawer/app-drawer.service';
+import { TableFirstLastComponent } from '../../../table-first-last/table-first-last.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { ChartComponentComponent } from './components/chart-component/chart-component.component';
 
 @Component({
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   selector: 'app-home',
+  host: {
+    class: 'app-host',
+  },
   standalone: true,
   imports: [
     // Modules
@@ -35,10 +42,12 @@ import { MatInputModule } from '@angular/material/input';
     MatTableModule,
     MatTooltipModule,
     ReactiveFormsModule,
-
+    MatTabsModule,
     // Components
     TablePagesComponent,
     TableFirstLastComponent,
+    UserListFilterComponent,
+    ChartComponentComponent,
   ],
 })
 export class HomeComponent implements AfterViewInit {
@@ -65,12 +74,17 @@ export class HomeComponent implements AfterViewInit {
     'name',
     'age',
     'gender',
-    'religion',
+    'race',
     'occupation',
     'menu',
   ];
 
-  constructor(private homeService: HomeService) {
+  displayedColums2: string[] = ['religion', 'address'];
+
+  constructor(
+    private homeService: HomeService,
+    private appDrawerService: AppDrawerService,
+  ) {
     this.homeService.getUserFromServer().then((users) => {
       this.userList = users;
       this.filterUserList('');
@@ -127,5 +141,15 @@ export class HomeComponent implements AfterViewInit {
     );
 
     this.dataSource.data = this.filteredUserList;
+  }
+
+  openDrawer() {
+    this.appDrawerService.openDrawer();
+  }
+
+  openPortal() {
+    this.appDrawerService.setDrawerWidth('400px');
+    this.appDrawerService.setPortalComponent(UserListFilterComponent);
+    this.appDrawerService.openDrawer();
   }
 }

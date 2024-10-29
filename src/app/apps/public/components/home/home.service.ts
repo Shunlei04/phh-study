@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AppEnvValues } from '../../../env/app.env';
 import { UserType } from './home.type';
+import { AppEnvValues } from '../../../../../env/app.env';
 
 @Injectable({
   providedIn: 'root',

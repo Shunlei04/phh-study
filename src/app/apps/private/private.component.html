@@ -1,1 +1,8 @@
-<p>private works!</p>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  @for (movie of movies; track movie) {
+    <div class="example-box" cdkDrag>
+      {{ movie.name }}
+      <img *cdkDragPreview [src]="movie.poster" [alt]="movie.name" />
+    </div>
+  }
+</div>

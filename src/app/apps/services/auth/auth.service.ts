@@ -9,11 +9,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  async checkUserInSever() {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
-        res(this.user);
-      }, 2000);
-    });
-  }
+  // async checkUserInSever() {
+  //   return new Promise((res, rej) => {
+  //     setTimeout(() => {
+  //       res(this.user);
+  //     }, 2000);
+  //   });
+  // }
 }

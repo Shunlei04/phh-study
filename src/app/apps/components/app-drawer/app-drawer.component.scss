@@ -1,0 +1,23 @@
+:host(.app-host) {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+mat-drawer-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+
+  mat-drawer {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  mat-drawer-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+}

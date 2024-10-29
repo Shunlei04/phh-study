@@ -1,0 +1,61 @@
+@use './app/resources/assets/themes/default-theme.scss' as g;
+@use './app/resources/assets/themes/yellow-theme.scss' as y;
+@use './app/resources/assets/themes/red-theme.scss' as r;
+@use './app/resources/assets/themes/peace-theme.scss' as p;
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+// green
+// #region
+html, html[theme='green']{
+  body {
+    @include mat.all-component-themes(g.$light-theme);
+  }
+  
+  body[mode='dark'] {
+    background-color: black;
+    @include mat.all-component-colors(g.$dark-theme);
+  }
+}
+// #endregion
+
+// yellow
+// #region
+html[theme='yellow'] {
+  body{
+    @include mat.all-component-colors(y.$light-theme)
+  }
+  body[mode='dark'] {
+    background-color: black;
+    @include mat.all-component-colors(y.$dark-theme);
+  }
+}
+// #endregion
+
+// red theme
+// #region
+html[theme='red'] {
+  body{
+    @include mat.all-component-colors(r.$light-theme)
+  }
+  body[mode='dark'] {
+    background-color: black;
+    @include mat.all-component-colors(r.$dark-theme);
+  }
+}
+// #endregion
+
+// peace theme
+// #region
+html[theme='peace'] {
+  body{
+    @include mat.all-component-colors(p.$light-theme)
+  }
+  body[mode='dark'] {
+    background-color: black;
+    @include mat.all-component-colors(p.$dark-theme);
+  }
+}
+// #endregion
